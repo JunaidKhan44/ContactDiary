@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:fragment="layout(content)">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+	crossorigin="anonymous">
+
+<!-- cdn icons -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+	integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link rel="stylesheet" th:href="@{/css/custom.css}" />
+
+<title th:text="${title}">Base</title>
+</head>
+<body>
+
+	<!-- nav bar -->
+
+	<nav class="fixed-top navbar navbar-expand-lg navbar-dark bg-primary">
+		<a class="navbar-brand" href="#">Contact - Diary</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse " id="navbarSupportedContent">
+			<ul class="navbar-nav ml-auto text-uppercase">
+				<li class="nav-item active"><a th:href="@{/home/}"
+					class="nav-link" href="#">Home <span class="sr-only">(current)</span>
+				</a></li>
+
+
+				<li class="nav-item"><a class="nav-link " href="#"><span
+						th:text="${user.name}"></span></a></li>
+
+				<li class="nav-item"><a th:href="@{/logout}" class="nav-link ">Logout</a></li>
+			</ul>
+
+		</div>
+	</nav>
+	<!-- nav bar end -->
+
+
+	<!-- side bar -->
+
+	<div class="sidebar mt-3">
+
+		<span onclick="toggleSidebar()" class="crossBtn">&times;</span> 
+		<a
+			href="#" th:href="@{/user/index}" class="item"><i
+			class="fa-solid fa-house-user"></i> Home</a> <a href="#"
+			th:href="@{/user/View-contacts/0}" class="item"><i
+			class="fa-solid fa-eye"></i> View Contacts</a> <a href="#"
+			th:href="@{/user/add-contact}" class="item"><i
+			class="fa-solid fa-plus"></i> Add Contacts</a> <a href="#" th:href="@{/user/profile}"
+			class="item"><i class="fa-solid fa-user"></i> Your Profile</a> <a
+			href="#" class="item"> <i class="fa-solid fa-gear"></i> Settings
+		</a> <a href="#" th:href="@{/logout}" class="item"><i
+			class="fa-solid fa-right-from-bracket"></i> Logout</a>
+
+		<div class="divider"></div>
+
+	</div>
+
+	<!-- content start -->
+
+	<div class="content mt-5">
+
+		<i onclick="toggleSidebar()" class="fa-solid fa-bars m-3"></i>
+
+		<div th:if="${session.message}" class="container">
+
+			<div class="alert text-center"
+				th:classappend="${'alert-'+session.message.type}" role="alert">
+				<span th:text="${session.message.content}"></span>
+			</div>
+
+			<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+		</div>
+
+
+
+		<div th:replace="${content}"></div>
+	</div>
+
+
+
+	<!-- Optional JavaScript; choose one of the two! -->
+
+	<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+		crossorigin="anonymous"></script>
+
+	<script th:src="@{/js/script.js}"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+			
+			<script>
+			function deleteContact(cid){
+			swal({
+		  	title: "Are you sure?",
+		  	text: "Once deleted, you will not be able to recover this record!",
+		  	icon: "warning",
+		  	buttons: true,
+		  	dangerMode: true,
+			})
+			.then((willDelete) => {
+			
+		  	if (willDelete) {
+		   	 window.location="/user/delete/"+cid;
+		   	 swal("Poof! Your record  has been deleted!", {
+		     icon: "success",
+		    });
+		 	} else {
+		    swal("Your record  is safe!");
+		  	}
+			});
+
+	}
+	
+	</script>
+
+	<!-- Option 2: Separate Popper and Bootstrap JS -->
+	<!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    -->
+</body>
+</html>

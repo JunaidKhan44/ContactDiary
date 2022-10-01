@@ -1,0 +1,142 @@
+body {
+	background: #e2e2e2 !important;
+}
+
+.bg-primary {
+	background: #1cbb8c !important;
+}
+
+.banner {
+	width: 100%;
+	height: 90vh;
+	background: linear-gradient(rgb(0, 0, 0, 0.8), rgb(0, 0, 0, 0.8)),
+		url("../images/banner.jpg");
+	background-size: cover;
+	color: white
+}
+
+.my-card{
+	padding:10px;
+	background: #FFFFFF;
+}
+
+#login .container #login-row #login-column #login-box {
+  margin-top: 120px;
+  max-width: 600px;
+  height: 420px;
+  border: 1px solid #9C9C9C;
+  background-color: white;
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
+}
+
+/* side bar styling*/
+
+
+@media only screen and (max-width: 600px){
+	.sidebar{
+	display:none;
+	width:80% !important;
+	background: white;
+	height: 100vh;
+	position: fixed;
+	padding-top: 20px;
+}
+
+	.content{
+	margin-left:0% !important; 
+	}
+	
+}
+
+.sidebar{
+	
+	width:18%;
+	background: white;
+	height: 100%;
+	position: fixed;
+	padding-top: 45px;
+	z-index: 99999999999999999999;
+	
+}
+
+.sidebar a{
+	display: block;
+	width: 100%;
+	padding: 10px 25px;
+	text-decoration: none;
+	color: gray;
+	
+	
+}
+
+
+.sidebar a:hover{
+	background: #e2e2e2;
+	
+}
+
+.sidebar .divider{
+	height: .5px;
+	width: 100%;
+	background: #e2e2e2;
+	margin-top: 10px;
+}
+
+.content{
+	
+	margin-left: 20%;
+
+	
+}
+
+
+.sidebar .crossBtn{
+	position: absolute;
+	top:0;
+	right: 35px;
+	font-size:36px;
+	cursor: pointer;
+}
+
+.my-profile-picture{
+	width:30px;
+	height:30px;
+	object-fit:over;
+	border-radius:50%;
+	
+}
+.my-profile-contact{
+	width:150px;
+	height:150px;
+	object-fit:over;
+	border-radius:50%;
+}
+.pic-update{
+	width:100px;
+	height:100px;
+	object-fit:over;
+	border-radius:50%;
+	
+}
+.project-title-color{
+		color: #1cbb8c !important;
+}
+
+/* search css*/
+.search-container{
+	position: relative;
+	
+}
+.search-result{
+	position: absolute;
+	background: white;
+	padding: 10px;
+	width: 100%;
+	border: 1px solid gray;
+	display: none;
+}
