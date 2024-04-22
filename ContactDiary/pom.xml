@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.7.3</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath /> 
 	</parent>
 	<groupId>com.contact</groupId>
 	<artifactId>ContactDiary</artifactId>
@@ -48,14 +48,14 @@
 		</dependency>
 
 
-		<!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+		
 		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
 
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
+		
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
@@ -63,7 +63,7 @@
 		</dependency>
 
 
-		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security -->
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
