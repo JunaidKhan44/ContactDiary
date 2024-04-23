@@ -46,21 +46,6 @@ public class HomeController implements ErrorController {
 	@Autowired
 	private UserRepository  userRepository;
 	
-//	@GetMapping("/test")
-//	@ResponseBody
-//	public String  test() {
-//		
-//		User  u=new User();
-//		u.setName("anbbc");
-//		u.setEmail("abccc");
-//		
-//		userRepository.save(u);
-//		
-//		Contact c=new Contact();
-//		u.getLovContact().add(c);
-//		
-//		return "working";
-//	}
 
 	@GetMapping("/home")
 	public String home(Model m) {
@@ -132,12 +117,7 @@ public class HomeController implements ErrorController {
 			return "signup";
 		}
 		
-		
-		
-		
-		
 	}
-
 
 
 	@GetMapping("/signin")
@@ -148,15 +128,5 @@ public class HomeController implements ErrorController {
 	}
 
 	
-//
-//	  @RequestMapping("/error")
-//	  @ResponseBody
-//	  String error(HttpServletRequest request) {
-//	    return "<h1>Error occurred</h1>";
-//	  }
-//
-//	  public String getErrorPath() {
-//	    return "/error";
-//	  }
 
 }
