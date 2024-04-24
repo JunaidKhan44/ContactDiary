@@ -16,7 +16,7 @@ import com.contact.entities.User;
 
 
 /**
- * @author hp
+ * @author Junaid.Khan
  *
  */
 public interface ContactRepository  extends JpaRepository<Contact, Integer> {
