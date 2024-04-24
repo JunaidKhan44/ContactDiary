@@ -4,7 +4,7 @@
 package com.contact.helper;
 
 /**
- * @author hp
+ * @author Junaid.Khan
  *
  */
 public class Message {
