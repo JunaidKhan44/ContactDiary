@@ -12,7 +12,7 @@ import com.contact.dao.UserRepository;
 import com.contact.entities.User;
 
 /**
- * @author hp
+ * @author Junaid.Khan
  *
  */
 public class UserDetailServicesImpl implements UserDetailsService {
