@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.contact.entities.User;
 
 /**
- * @author hp
+ * @author Junaid.Khan
  *
  */
 public class CustomUserDetails implements UserDetails {
