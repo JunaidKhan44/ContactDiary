@@ -11,7 +11,7 @@ import org.springframework.data.repository.query.Param;
 import com.contact.entities.User;
 
 /**
- * @author hp
+ * @author Junaid.Khan
  *
  */
 public interface UserRepository extends JpaRepository<User, Integer> {
